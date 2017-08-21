@@ -19,6 +19,7 @@
         <typeAlias type="com.maceo.investment.datacrawler.Market" alias="Market"/>
         <typeAlias type="com.maceo.investment.datacrawler.Stock" alias="Stock"/>
         <typeAlias type="com.maceo.investment.datacrawler.repository.UUIDTypeHandler" alias="UUIDTypeHandler"/>
+        <typeAlias type="com.maceo.investment.datacrawler.StockLastCrawlDate" alias="StockLastCrawlDate"/>
     </typeAliases>
 
     <mappers>

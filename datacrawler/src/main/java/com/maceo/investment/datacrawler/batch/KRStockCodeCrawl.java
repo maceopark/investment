@@ -1,6 +1,8 @@
-package com.maceo.investment.datacrawler;
+package com.maceo.investment.datacrawler.batch;
 
 import com.google.common.base.Throwables;
+import com.maceo.investment.datacrawler.Market;
+import com.maceo.investment.datacrawler.Stock;
 import com.maceo.investment.datacrawler.exception.HtmlParseException;
 import io.vavr.control.Try;
 import org.jsoup.Jsoup;

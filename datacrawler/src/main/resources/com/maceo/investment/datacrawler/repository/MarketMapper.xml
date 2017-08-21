@@ -15,39 +15,77 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.maceo.investment.datacrawler.repository.MarketRepository">
+    <resultMap id="stockMap" type="Stock">
+        <constructor>
+            <idArg column="stock_id" javaType="java.util.UUID" typeHandler="UUIDTypeHandler"/>
+            <arg column="stock_code" javaType="String"/>
+            <arg column="stock_name" javaType="String"/>
+            <arg column="stock_market_id" javaType="String"/>
+        </constructor>
+    </resultMap>
+
     <resultMap id="marketMap" type="Market">
         <id column="market_id" property="marketId"/>
         <result column="market_desc" property="marketDesc"/>
         <result column="code_crawl_base_url" property="codeCrawlBaseUrl"/>
-        <collection property="stocks" ofType="Stock">
-            <constructor>
-                <idArg column="stock_id" javaType="java.util.UUID" typeHandler="UUIDTypeHandler"/>
-                <arg column="stock_code" javaType="String"/>
-                <arg column="stock_name" javaType="String"/>
-                <arg column="stock_market_id" javaType="String"/>
-            </constructor>
-        </collection>
+        <collection property="stocks" ofType="Stock" resultMap="stockMap"/>
+    </resultMap>
+
+    <resultMap id="stockLastCrawlDateMap" type="StockLastCrawlDate">
+        <constructor>
+            <idArg javaType="Stock" resultMap="stockMap"/>
+            <arg column="last_crawl_date" javaType="String"/>
+        </constructor>
     </resultMap>
 
     <sql id="marketColumns">
         m.market_id
        ,m.market_desc
        ,m.code_crawl_base_url
-        ,s.stock_id
-       ,s.stock_code
-       ,s.stock_name
-       ,s.market_id as stock_market_id
+    </sql>
+
+    <sql id="stockColumns">
+        s.stock_id
+        ,s.stock_code
+        ,s.stock_name
+        ,s.market_id as stock_market_id
     </sql>
 
     <select id="getMarkets" resultMap="marketMap">
         /* MarketMapper.getMarkets */
         select <include refid="marketColumns"/>
+              ,<include refid="stockColumns"/>
         from datacrawl.market m
         left join datacrawl.stock s on m.market_id = s.market_id
     </select>
 
     <insert id="insertStock" parameterType="Stock">
+        /* MarketMapper.insertStock */
         insert into stock (stock_id, market_id, stock_code, stock_name) values (#{stockId, typeHandler=UUIDTypeHandler}, #{marketId}, #{stockCode}, #{stockName})
     </insert>
+
+    <select id="getStock" resultMap="stockMap">
+        /* MarketMapper.getStock */
+        select <include refid="stockColumns"/>
+          from datacrawl.stock s
+         where stock_id = #{stockId}
+    </select>
+
+
+    <select id="getStocksToCrawlDailyData" resultMap="stockLastCrawlDateMap">
+        /* MarketMapper.getStocksToCrawlDailyData */
+        select <include refid="stockColumns"/>, '19000101' as last_crawl_date
+        from datacrawl.stock s
+        where not exists (select 1 from datacrawl.stock_daily_data where STOCK_ID = s.stock_id)
+
+        union
+
+        select <include refid="stockColumns"/>, s.last_crawl_date
+        from (
+        select s.* , (select coalesce(max(yyyymmdd), '19000101') from datacrawl.stock_daily_data where stock_id = s.stock_id) as last_crawl_date
+        from datacrawl.stock s
+        ) s
+        where s.last_crawl_date &lt; #{queryDate}
+    </select>
 
 </mapper>

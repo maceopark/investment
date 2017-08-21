@@ -1,4 +1,4 @@
-import com.maceo.investment.datacrawler.KRStockCodeCrawl;
+import com.maceo.investment.datacrawler.batch.KRStockCodeCrawl;
 import com.maceo.investment.datacrawler.Market;
 import com.maceo.investment.datacrawler.Stock;
 import io.vavr.control.Try;
