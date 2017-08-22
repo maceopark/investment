@@ -1,6 +1,6 @@
 import com.maceo.investment.datacrawler.batch.KRStockCodeCrawl;
-import com.maceo.investment.datacrawler.Market;
-import com.maceo.investment.datacrawler.Stock;
+import com.maceo.investment.datacrawler.model.Market;
+import com.maceo.investment.datacrawler.model.Stock;
 import io.vavr.control.Try;
 import org.junit.Before;
 import org.junit.Test;

@@ -21,6 +21,7 @@
             <arg column="stock_code" javaType="String"/>
             <arg column="stock_name" javaType="String"/>
             <arg column="stock_market_id" javaType="String"/>
+            <arg column="created_date" javaType="DateTime" typeHandler="JodaDateTimeTypeHandler"/>
         </constructor>
     </resultMap>
 
@@ -34,7 +35,18 @@
     <resultMap id="stockLastCrawlDateMap" type="StockLastCrawlDate">
         <constructor>
             <idArg javaType="Stock" resultMap="stockMap"/>
-            <arg column="last_crawl_date" javaType="String"/>
+            <arg column="last_crawl_date" javaType="DateTime" typeHandler="JodaDateTimeTypeHandler"/>
+        </constructor>
+    </resultMap>
+
+    <resultMap id="stockDailyDataMap" type="StockDailyData">
+        <constructor>
+            <idArg column="yyyymmdd" javaType="DateTime" typeHandler="JodaDateTimeTypeHandler"/>
+            <arg column="final_price" javaType="_int"/>
+            <arg column="start_price" javaType="_int"/>
+            <arg column="high_price" javaType="_int"/>
+            <arg column="low_price" javaType="_int"/>
+            <arg column="trace_volume" javaType="_int"/>
         </constructor>
     </resultMap>
 
@@ -49,6 +61,7 @@
         ,s.stock_code
         ,s.stock_name
         ,s.market_id as stock_market_id
+        ,s.created_date
     </sql>
 
     <select id="getMarkets" resultMap="marketMap">
@@ -71,21 +84,35 @@
          where stock_id = #{stockId}
     </select>
 
+    <select id="getStockByStockCode" resultMap="stockMap">
+        /* MarketMapper.getStockByStockCode */
+        select <include refid="stockColumns"/>
+          from datacrawl.stock s
+         where stock_code = #{stockCode}
+           and market_id = #{marketId}
+    </select>
 
     <select id="getStocksToCrawlDailyData" resultMap="stockLastCrawlDateMap">
         /* MarketMapper.getStocksToCrawlDailyData */
-        select <include refid="stockColumns"/>, '19000101' as last_crawl_date
+        select <include refid="stockColumns"/>, cast('19000101' as date) as last_crawl_date
         from datacrawl.stock s
         where not exists (select 1 from datacrawl.stock_daily_data where STOCK_ID = s.stock_id)
 
         union
 
+
         select <include refid="stockColumns"/>, s.last_crawl_date
         from (
-        select s.* , (select coalesce(max(yyyymmdd), '19000101') from datacrawl.stock_daily_data where stock_id = s.stock_id) as last_crawl_date
+        select s.* , (select coalesce(max(yyyymmdd), cast('19000101' as date)) from datacrawl.stock_daily_data where stock_id = s.stock_id) as last_crawl_date
         from datacrawl.stock s
         ) s
         where s.last_crawl_date &lt; #{queryDate}
     </select>
+
+    <insert id="insertStockDailyData">
+        /* MarketMapper.insertStockDailyData */
+        replace into datacrawl.stock_daily_data (stock_id, yyyymmdd, final_price, start_price, high_price, low_price, trade_volume) values
+        (#{stockId, typeHandler=UUIDTypeHandler}, #{data.yyyymmdd, typeHandler=JodaDateTimeTypeHandler}, #{data.finalPrice}, #{data.startPrice}, #{data.highPrice}, #{data.lowPrice}, #{data.tradeVolume} )
+    </insert>
 
 </mapper>

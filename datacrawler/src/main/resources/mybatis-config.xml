@@ -16,10 +16,13 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.maceo.investment.datacrawler.Market" alias="Market"/>
-        <typeAlias type="com.maceo.investment.datacrawler.Stock" alias="Stock"/>
+        <typeAlias type="com.maceo.investment.datacrawler.model.Market" alias="Market"/>
+        <typeAlias type="com.maceo.investment.datacrawler.model.Stock" alias="Stock"/>
         <typeAlias type="com.maceo.investment.datacrawler.repository.UUIDTypeHandler" alias="UUIDTypeHandler"/>
-        <typeAlias type="com.maceo.investment.datacrawler.StockLastCrawlDate" alias="StockLastCrawlDate"/>
+        <typeAlias type="com.maceo.investment.datacrawler.model.StockLastCrawlDate" alias="StockLastCrawlDate"/>
+        <typeAlias type="org.joda.time.DateTime" alias="DateTime"/>
+        <typeAlias type="com.maceo.investment.datacrawler.repository.JodaDateTimeTypeHandler" alias="JodaDateTimeTypeHandler"/>
+        <typeAlias type="com.maceo.investment.datacrawler.model.StockDailyData" alias="StockDailyData"/>
     </typeAliases>
 
     <mappers>

@@ -1,7 +1,7 @@
 package com.maceo.investment.datacrawler.batch;
 
-import com.maceo.investment.datacrawler.Market;
-import com.maceo.investment.datacrawler.Stock;
+import com.maceo.investment.datacrawler.model.Market;
+import com.maceo.investment.datacrawler.model.Stock;
 import com.maceo.investment.datacrawler.repository.MarketRepository;
 import io.vavr.Tuple2;
 import org.slf4j.Logger;

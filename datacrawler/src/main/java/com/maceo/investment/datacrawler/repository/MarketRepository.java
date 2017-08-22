@@ -1,13 +1,15 @@
 package com.maceo.investment.datacrawler.repository;
 
-import com.maceo.investment.datacrawler.Market;
-import com.maceo.investment.datacrawler.Stock;
-import com.maceo.investment.datacrawler.StockLastCrawlDate;
+import com.maceo.investment.datacrawler.model.Market;
+import com.maceo.investment.datacrawler.model.Stock;
+import com.maceo.investment.datacrawler.model.StockDailyData;
+import com.maceo.investment.datacrawler.model.StockLastCrawlDate;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.joda.time.DateTime;
 
 import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 
 @Mapper
 public interface MarketRepository {
@@ -16,8 +18,11 @@ public interface MarketRepository {
 
     void insertStock(Stock stock);
 
-    List<StockLastCrawlDate> getStocksToCrawlDailyData(@Param("queryDate") String queryDate);
+    List<StockLastCrawlDate> getStocksToCrawlDailyData(@Param("queryDate") DateTime queryDate);
 
-    Stock getStock(@Param("stockid") String stockId);
+    Stock getStock(@Param("stockId") String stockId);
 
+    Stock getStockByStockCode(@Param("stockCode") String stockCode, @Param("marketId") String marketId);
+
+    void insertStockDailyData(@Param("stockId") UUID stockId, @Param("data") StockDailyData data);
 }

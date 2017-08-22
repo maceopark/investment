@@ -1,4 +1,4 @@
-package com.maceo.investment.datacrawler;
+package com.maceo.investment.datacrawler.model;
 
 import lombok.*;
 import java.util.ArrayList;

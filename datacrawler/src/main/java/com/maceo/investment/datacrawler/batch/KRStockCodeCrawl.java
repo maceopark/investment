@@ -1,10 +1,11 @@
 package com.maceo.investment.datacrawler.batch;
 
 import com.google.common.base.Throwables;
-import com.maceo.investment.datacrawler.Market;
-import com.maceo.investment.datacrawler.Stock;
+import com.maceo.investment.datacrawler.model.Market;
+import com.maceo.investment.datacrawler.model.Stock;
 import com.maceo.investment.datacrawler.exception.HtmlParseException;
 import io.vavr.control.Try;
+import org.joda.time.DateTime;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
@@ -50,7 +51,7 @@ public class KRStockCodeCrawl {
                             } else {
                                 throw new HtmlParseException("Parsing stock code has failed " + element.toString());
                             }
-                            return new Stock(UUID.randomUUID(), code, element.text(), market.getMarketId());
+                            return new Stock(UUID.randomUUID(), code, element.text(), market.getMarketId(), DateTime.now());
                         }).collect(Collectors.toList());
         });
     };

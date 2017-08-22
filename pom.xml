@@ -24,7 +24,6 @@
         <vavr.version>0.9.0</vavr.version>
         <guava.version>23.0</guava.version>
         <mybatis-spring.version>1.3.0</mybatis-spring.version>
-        <flyway.maven.plugin.version>4.2.0</flyway.maven.plugin.version>
     </properties>
 
     <build>

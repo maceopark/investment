@@ -1,6 +1,7 @@
-package com.maceo.investment.datacrawler;
+package com.maceo.investment.datacrawler.model;
 
 import lombok.*;
+import org.joda.time.DateTime;
 
 import java.util.UUID;
 
@@ -13,6 +14,7 @@ public class Stock {
     private final String stockCode;
     private final String stockName;
     private final String marketId;
+    private final DateTime createdDate;
 
     @Override
     public boolean equals(Object o) {
