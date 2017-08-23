@@ -81,8 +81,8 @@ public class KRStockDailyDataCrawler  {
                 LOGGER.trace(String.format("Parsing %s failed: %s", url, doc.getCause().toString()));
             }
             pageNum++;
-            // Sleep for up to 3s in random fashion between pages
-            Thread.sleep((long)(Math.random() * 3000));
+            // Sleep for up to 1s in random fashion between pages
+            Thread.sleep((long)(Math.random() * 1000));
         }
         return result;
     }
