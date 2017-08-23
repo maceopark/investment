@@ -1,5 +1,6 @@
 package com.maceo.investment.datacrawler.batch;
 
+import com.maceo.investment.datacrawler.exception.HtmlParseException;
 import com.maceo.investment.datacrawler.model.Stock;
 import com.maceo.investment.datacrawler.model.StockDailyData;
 import com.maceo.investment.datacrawler.model.StockLastCrawlDate;
@@ -20,6 +21,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Component
 public class KRStockDailyDataCrawler  {
@@ -32,7 +35,7 @@ public class KRStockDailyDataCrawler  {
 
     private static Logger LOGGER = LoggerFactory.getLogger(KRStockDailyDataCrawler.class);
 
-    @Transactional
+//    @Transactional
     public void run() throws InterruptedException {
         List<StockLastCrawlDate> result = marketRepository.getStocksToCrawlDailyData(Utils.krNowYYYYMMDD());
         for(StockLastCrawlDate toCrawl : result) {
@@ -42,13 +45,15 @@ public class KRStockDailyDataCrawler  {
             crawlResult.forEach(r -> {
                 marketRepository.insertStockDailyData(stock.getStockId(), r);
             });
-            break;
+//            break;
         }
     }
 
     public static List<StockDailyData> naverSise(String stockCode, DateTime lastCrawlDate) throws InterruptedException {
         Integer pageNum = 1;
         List<StockDailyData> result = new ArrayList<>();
+        int lastPageNum = parseNaverDailyStockPriceLastPageNum(stockCode).getOrElse(0);
+
         while(true) {
             String url = NAVER_DAILY_MARKET_PRICE_URL
                     .replace("#{stockCode}", stockCode)
@@ -56,14 +61,22 @@ public class KRStockDailyDataCrawler  {
 
             Try<Document> doc = Try.of(() -> Jsoup.connect(url).get());
             List<StockDailyData>  parsedSinglePage;
+
             if(doc.isSuccess()) {
                 parsedSinglePage = parseNaverDailyStockPricePage(doc.get(), lastCrawlDate);
                 result.addAll(parsedSinglePage);
                 LOGGER.trace(String.format("stockCode=%s, pageNum=%d", stockCode, pageNum));
+
                 if(parsedSinglePage.size() < MAX_ENTRY_SIZE_PER_PAGE) {
+                    LOGGER.trace(String.format("%s is last page", url));
+                    break;      // This means parser hit last page with less than 10 entries. quit the while(true) loop.
+                }
+
+                if(pageNum >=lastPageNum) {
                     LOGGER.trace(String.format("%s is last page", url));
                     break;      // This means this is the last page. quit the while(true) loop.
                 }
+
             } else {
                 LOGGER.trace(String.format("Parsing %s failed: %s", url, doc.getCause().toString()));
             }
@@ -72,6 +85,27 @@ public class KRStockDailyDataCrawler  {
             Thread.sleep((long)(Math.random() * 3000));
         }
         return result;
+    }
+
+    public static Try<Integer> parseNaverDailyStockPriceLastPageNum(String stockCode) {
+        String url = NAVER_DAILY_MARKET_PRICE_URL
+                .replace("#{stockCode}", stockCode)
+                .replace("#{pageNum}", "1");
+
+        return Try.of(() -> Jsoup.connect(url).get())
+                .map(doc -> {
+                    Elements lastPageAnchor = doc.select("td.pgRR > a");
+                    if(lastPageAnchor.size() == 0) {
+                        throw new HtmlParseException("No lastPage exists");
+                    }
+                    String lastPageLink = doc.select("td.pgRR > a").get(0).attributes().get("href");
+                    Pattern pattern = Pattern.compile("page=(\\d+)$");
+                    Matcher matcher = pattern.matcher(lastPageLink);
+                    if(matcher.find()) {
+                        return new Integer(matcher.group(1));
+                    }
+                    throw new HtmlParseException("No lastPage exists");
+                });
     }
 
     private static List<StockDailyData> parseNaverDailyStockPricePage(Document singlePage, DateTime lastCrawlDate) {
