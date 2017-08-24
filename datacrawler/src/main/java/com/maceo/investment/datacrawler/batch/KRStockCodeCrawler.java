@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class KRStockCodeCrawler  {
 
-    Logger LOGGER = LoggerFactory.getLogger(KRStockCodeCrawler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(KRStockCodeCrawler.class);
 
     @Autowired
     private MarketRepository marketRepository;

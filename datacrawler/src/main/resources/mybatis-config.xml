@@ -23,6 +23,9 @@
         <typeAlias type="org.joda.time.DateTime" alias="DateTime"/>
         <typeAlias type="com.maceo.investment.datacrawler.repository.JodaDateTimeTypeHandler" alias="JodaDateTimeTypeHandler"/>
         <typeAlias type="com.maceo.investment.datacrawler.model.StockDailyData" alias="StockDailyData"/>
+        <typeAlias type="com.maceo.investment.datacrawler.model.FinancialSheet" alias="FinancialSheet"/>
+        <typeAlias type="com.maceo.investment.datacrawler.model.FinancialSheetItem" alias="FinancialSheetItem"/>
+        <typeAlias type="java.util.UUID" alias="UUID"/>
     </typeAliases>
 
     <mappers>

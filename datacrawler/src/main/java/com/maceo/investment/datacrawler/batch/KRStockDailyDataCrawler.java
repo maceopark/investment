@@ -3,12 +3,10 @@ package com.maceo.investment.datacrawler.batch;
 import com.maceo.investment.datacrawler.exception.HtmlParseException;
 import com.maceo.investment.datacrawler.model.Stock;
 import com.maceo.investment.datacrawler.model.StockDailyData;
-import com.maceo.investment.datacrawler.model.StockLastCrawlDate;
 import com.maceo.investment.datacrawler.repository.MarketRepository;
 import com.maceo.investment.datacrawler.Utils;
 import io.vavr.control.Try;
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -17,7 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,18 +32,21 @@ public class KRStockDailyDataCrawler  {
 
     private static Logger LOGGER = LoggerFactory.getLogger(KRStockDailyDataCrawler.class);
 
-//    @Transactional
     public void run() throws InterruptedException {
-        List<StockLastCrawlDate> result = marketRepository.getStocksToCrawlDailyData(Utils.krNowYYYYMMDD());
-        for(StockLastCrawlDate toCrawl : result) {
-            Stock stock = toCrawl.getStock();
-            DateTime lastCrawlDate = toCrawl.getLastCrawlDate();
-            List<StockDailyData> crawlResult = naverSise(stock.getStockCode(), lastCrawlDate);
-            crawlResult.forEach(r -> {
-                marketRepository.insertStockDailyData(stock.getStockId(), r);
-            });
-//            break;
-        }
+        marketRepository.getStocksToCrawlDailyData(Utils.krNowYYYYMMDD()).parallelStream()
+                .forEach(toCrawl -> {
+                    Stock stock = toCrawl.getStock();
+                    DateTime lastCrawlDate = toCrawl.getLastCrawlDate();
+                    List<StockDailyData> crawlResult = null;
+                    try {
+                        crawlResult = naverSise(stock.getStockCode(), lastCrawlDate);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    crawlResult.forEach(r -> {
+                        marketRepository.insertStockDailyData(stock.getStockId(), r);
+                    });
+                });
     }
 
     public static List<StockDailyData> naverSise(String stockCode, DateTime lastCrawlDate) throws InterruptedException {
@@ -115,15 +115,15 @@ public class KRStockDailyDataCrawler  {
             if(elem.attributes().size() == 0 ) continue;
             Elements cols = elem.select("td");
             // IF yyyymmdd is empty, skip it. FUCKING JSOUP converts &nbso to \u00a0. It's not empty string.
-            // nbspToSpace converts it to space
-            if(Utils.nbspToSpace(cols.get(0).text()).replace(".", "").trim().isEmpty()) continue;
+            // norm converts it to space
+            if(Utils.norm(cols.get(0).text()).replace(".", "").trim().isEmpty()) continue;
             StockDailyData data = new StockDailyData(
-                    Utils.yyyymmdd(Utils.nbspToSpace(cols.get(0).text()).replace(".", "").trim()),
-                    Integer.parseInt(Utils.nbspToSpace(cols.get(1).text()).replace(",","").trim()),
-                    Integer.parseInt(Utils.nbspToSpace(cols.get(3).text()).replace(",","").trim()),
-                    Integer.parseInt(Utils.nbspToSpace(cols.get(4).text()).replace(",","").trim()),
-                    Integer.parseInt(Utils.nbspToSpace(cols.get(5).text()).replace(",","").trim()),
-                    Integer.parseInt(Utils.nbspToSpace(cols.get(6).text()).replace(",","").trim())
+                    Utils.yyyymmdd(Utils.norm(cols.get(0).text()).replace(".", "").trim()),
+                    Integer.parseInt(Utils.norm(cols.get(1).text()).replace(",","").trim()),
+                    Integer.parseInt(Utils.norm(cols.get(3).text()).replace(",","").trim()),
+                    Integer.parseInt(Utils.norm(cols.get(4).text()).replace(",","").trim()),
+                    Integer.parseInt(Utils.norm(cols.get(5).text()).replace(",","").trim()),
+                    Integer.parseInt(Utils.norm(cols.get(6).text()).replace(",","").trim())
             );
 
             // STOP CONDITION. IF CRAWLED YYYYMMDD HITS LASTCRAWLDATE STOP PROCESSING. IT'S ALREADY CRAWLED.

@@ -28,7 +28,7 @@ public class KRStockCodeCrawl {
         return Try.of(() -> {
             Document doc = Jsoup.connect(market.getStockListPageURL(1)).get();
             String lastPageLink = doc.select("td.pgRR > a").get(0).attributes().get("href");
-            Pattern pattern = Pattern.compile("page=(\\d+)$");
+            Pattern pattern = Pattern.compile("page=(\\w+)$");
             Matcher matcher = pattern.matcher(lastPageLink);
             if(matcher.find()) {
                 return new Integer(matcher.group(1));
@@ -45,7 +45,7 @@ public class KRStockCodeCrawl {
             return doc.select("a.tltle").stream()
                         .map(element ->  {
                             String code;
-                            Matcher matcher = Pattern.compile("code=(\\d+)").matcher(element.toString());
+                            Matcher matcher = Pattern.compile("code=(\\w+)").matcher(element.toString());
                             if(matcher.find()) {
                                 code = matcher.group(1);
                             } else {

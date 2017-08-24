@@ -50,6 +50,26 @@
         </constructor>
     </resultMap>
 
+    <resultMap id="financialSheetMap" type="FinancialSheet">
+        <constructor>
+            <idArg column="financial_sheet_id" javaType="UUID" typeHandler="UUIDTypeHandler"/>
+            <arg column="stock_id" javaType="UUID" typeHandler="UUIDTypeHandler"/>
+            <arg column="year" javaType="_int"/>
+            <arg column="quarter" javaType="_int"/>
+            <arg column="financial_sheet_type" javaType="_int"/>
+            <arg column="estimated_sheet" javaType="_boolean"/>
+            <arg column="created_date" javaType="DateTime" typeHandler="JodaDateTimeTypeHandler"/>
+        </constructor>
+    </resultMap>
+
+    <resultMap id="financialSheetItemMap" type="FinancialSheetItem">
+        <constructor>
+            <idArg column="term" javaType="String"/>
+            <arg column="value" javaType="_long"/>
+            <arg column="created_date" javaType="DateTime" typeHandler="JodaDateTimeTypeHandler"/>
+        </constructor>
+    </resultMap>
+
     <sql id="marketColumns">
         m.market_id
        ,m.market_desc
@@ -62,6 +82,16 @@
         ,s.stock_name
         ,s.market_id as stock_market_id
         ,s.created_date
+    </sql>
+
+    <sql id="financialSheetColumns">
+         f.financial_sheet_id
+        ,f.stock_id
+        ,f.year
+        ,f.quarter
+        ,financial_sheet_type
+        ,f.estimated_sheet
+        ,f.created_date
     </sql>
 
     <select id="getMarkets" resultMap="marketMap">
@@ -114,5 +144,11 @@
         replace into datacrawl.stock_daily_data (stock_id, yyyymmdd, final_price, start_price, high_price, low_price, trade_volume) values
         (#{stockId, typeHandler=UUIDTypeHandler}, #{data.yyyymmdd, typeHandler=JodaDateTimeTypeHandler}, #{data.finalPrice}, #{data.startPrice}, #{data.highPrice}, #{data.lowPrice}, #{data.tradeVolume} )
     </insert>
+
+    <select id="getFinancialSheetsByStock" resultMap="financialSheetMap">
+        select <include refid="financialSheetColumns"/>
+          from datacrawl.financial_sheet
+         where stock_id = #{stockId, typeHandler=UUIDTypeHandler}
+    </select>
 
 </mapper>

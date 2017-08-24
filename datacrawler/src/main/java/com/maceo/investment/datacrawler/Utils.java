@@ -22,7 +22,11 @@ public class Utils {
         return DateTimeFormat.forPattern("yyyyMMdd").parseDateTime(yyyymmdd);
     }
 
-    public static String nbspToSpace(String s) {
-        return s.replace("\u00a0"," ");
+    public static String norm(String s) {
+        return s.replace("\u00a0"," ") //&nbsp is converted to "\u00a0" by Jsoup.
+                .replace(".", "")
+                .replace(" ", "")
+                .replace(",", "")
+                .replaceAll("\\s", "");
     }
 }
