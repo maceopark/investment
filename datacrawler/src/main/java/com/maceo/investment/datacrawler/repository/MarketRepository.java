@@ -26,4 +26,10 @@ public interface MarketRepository {
     void insertStockDailyData(@Param(STOCK_ID) UUID stockId, @Param("data") StockDailyData data);
 
     List<FinancialSheet> getFinancialSheetsByStock(@Param(STOCK_ID) UUID stockId);
+
+    void insertFinancialSheet(@Param("fsheet") FinancialSheet fsheet);
+
+    String getStandarTerm(@Param("term") String term);
+
+    void saveFinancialSheetItem(@Param("financialSheetId") UUID financialSheetId, @Param("item") FinancialSheetItem item);
 }

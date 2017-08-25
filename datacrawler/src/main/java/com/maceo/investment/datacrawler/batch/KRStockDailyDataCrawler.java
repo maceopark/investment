@@ -33,6 +33,11 @@ public class KRStockDailyDataCrawler  {
     private static Logger LOGGER = LoggerFactory.getLogger(KRStockDailyDataCrawler.class);
 
     public void run() throws InterruptedException {
+
+        Try.of(() -> Jsoup.connect("http://finance.naver.com").get())
+                .filter(d -> d.text().contains("장마감"))
+                .getOrElseThrow(() -> new HtmlParseException("Daily data crawl can run after the market is closed"));
+
         marketRepository.getStocksToCrawlDailyData(Utils.krNowYYYYMMDD()).parallelStream()
                 .forEach(toCrawl -> {
                     Stock stock = toCrawl.getStock();

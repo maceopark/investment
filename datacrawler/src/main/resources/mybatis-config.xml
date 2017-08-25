@@ -26,6 +26,8 @@
         <typeAlias type="com.maceo.investment.datacrawler.model.FinancialSheet" alias="FinancialSheet"/>
         <typeAlias type="com.maceo.investment.datacrawler.model.FinancialSheetItem" alias="FinancialSheetItem"/>
         <typeAlias type="java.util.UUID" alias="UUID"/>
+        <typeAlias type="org.apache.ibatis.type.EnumTypeHandler" alias="EnumTypeHandler"/>
+        <typeAlias type="com.maceo.investment.datacrawler.model.FinancialSheetType" alias="FinancialSheetType"/>
     </typeAliases>
 
     <mappers>

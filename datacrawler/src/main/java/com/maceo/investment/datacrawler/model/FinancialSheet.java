@@ -35,20 +35,14 @@ public class FinancialSheet {
             this.quarter = 0;
         } else if(peridType.equals(FinancialSheetPeridType.QUARTERLY)) {
             String month = yearQuarter.substring(5, 7);
-            if(month.equals("03")) {
-                this.quarter = 1;
-            } else if(month.equals("06")) {
-                this.quarter = 2;
-            } else if(month.equals("09")) {
-                this.quarter = 3;
-            } else if(month.equals("12")) {
-                this.quarter = 4;
-            } else {
-                throw new HtmlParseException(String.format("%s is invalid quarter format", month));
-            }
+            this.quarter = new Integer(month);
         } else {
             throw new HtmlParseException(String.format("%s is invalid year/quarter format", yearQuarter));
         }
+    }
+
+    public boolean isValidFinancialSheet() {
+        return this.year > 0;
     }
 
     @Override

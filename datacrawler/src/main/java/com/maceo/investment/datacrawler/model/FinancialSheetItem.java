@@ -8,6 +8,6 @@ import org.joda.time.DateTime;
 @AllArgsConstructor
 public class FinancialSheetItem {
     private final String term;
-    private final long value;
-    private final DateTime created_date;
+    private final double value;
+    private final DateTime createdDate;
 }

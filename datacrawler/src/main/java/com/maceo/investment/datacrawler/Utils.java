@@ -29,4 +29,8 @@ public class Utils {
                 .replace(",", "")
                 .replaceAll("\\s", "");
     }
+
+    public static void randomSleep(long maxSeconds) throws InterruptedException {
+        Thread.sleep((long)(Math.random() * maxSeconds * 1000));
+    }
 }

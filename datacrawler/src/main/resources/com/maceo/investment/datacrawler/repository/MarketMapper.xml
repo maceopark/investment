@@ -56,7 +56,7 @@
             <arg column="stock_id" javaType="UUID" typeHandler="UUIDTypeHandler"/>
             <arg column="year" javaType="_int"/>
             <arg column="quarter" javaType="_int"/>
-            <arg column="financial_sheet_type" javaType="_int"/>
+            <arg column="financial_sheet_type" javaType="FinancialSheetType" typeHandler="EnumTypeHandler"/>
             <arg column="estimated_sheet" javaType="_boolean"/>
             <arg column="created_date" javaType="DateTime" typeHandler="JodaDateTimeTypeHandler"/>
         </constructor>
@@ -65,7 +65,7 @@
     <resultMap id="financialSheetItemMap" type="FinancialSheetItem">
         <constructor>
             <idArg column="term" javaType="String"/>
-            <arg column="value" javaType="_long"/>
+            <arg column="value" javaType="_double"/>
             <arg column="created_date" javaType="DateTime" typeHandler="JodaDateTimeTypeHandler"/>
         </constructor>
     </resultMap>
@@ -147,8 +147,39 @@
 
     <select id="getFinancialSheetsByStock" resultMap="financialSheetMap">
         select <include refid="financialSheetColumns"/>
-          from datacrawl.financial_sheet
+          from datacrawl.financial_sheet f
          where stock_id = #{stockId, typeHandler=UUIDTypeHandler}
     </select>
+
+    <insert id="insertFinancialSheet" parameterType="FinancialSheet">
+        insert into datacrawl.financial_sheet (financial_sheet_id, stock_id, year, quarter, financial_sheet_type, estimated_sheet, created_date) values
+        (
+            #{fsheet.financialSheetId, typeHandler=UUIDTypeHandler},
+            #{fsheet.stockId, typeHandler=UUIDTypeHandler},
+            #{fsheet.year},
+            #{fsheet.quarter},
+            #{fsheet.financialSheetType, typeHandler=EnumTypeHandler},
+            #{fsheet.estimatedSheet},
+            #{fsheet.createdDate, typeHandler=JodaDateTimeTypeHandler}
+        )
+    </insert>
+
+    <select id="getStandarTerm" parameterType="String" resultType="String">
+        select coalesce(
+        (select term from datacrawl.term_variation where variation = #{term}),
+        (select term from datacrawl.financial_sheet_term where term = #{term})
+        ) as standard_term
+        from dual
+    </select>
+
+    <update id="saveFinancialSheetItem" parameterType="FinancialSheetItem">
+        replace into datacrawl.financial_sheet_item (financial_sheet_id, term, value, created_date) values
+        (
+            #{financialSheetId, typeHandler=UUIDTypeHandler},
+            #{item.term},
+            #{item.value},
+            #{item.createdDate, typeHandler=JodaDateTimeTypeHandler}
+        )
+    </update>
 
 </mapper>
