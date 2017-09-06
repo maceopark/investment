@@ -3,6 +3,7 @@ package com.maceo.investment.datacrawler;
 import com.maceo.investment.datacrawler.batch.KRFinancialSheetNaverCrawler;
 import com.maceo.investment.datacrawler.batch.KRStockCodeCrawler;
 import com.maceo.investment.datacrawler.batch.KRStockDailyDataCrawler;
+import com.maceo.investment.datacrawler.batch.KRTreasuryBond3YearCrawler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -24,6 +25,9 @@ public class AppMain implements CommandLineRunner {
     @Autowired
     private KRFinancialSheetNaverCrawler krFinancialSheetNaverCrawler;
 
+    @Autowired
+    private KRTreasuryBond3YearCrawler krTreasuryBond3YearCrawler;
+
     @Override
     public void run(String... args) throws Exception {
         if(args.length == 0) {
@@ -36,6 +40,7 @@ public class AppMain implements CommandLineRunner {
                 krStockCodeCrawler.run();
             } else if(arg.equals("daily")) {
                 krStockDailyDataCrawler.run();
+                krTreasuryBond3YearCrawler.run();
             } else if(arg.equals("fsheet")) {
                 krFinancialSheetNaverCrawler.run();
             } else {

@@ -182,4 +182,21 @@
         )
     </update>
 
+    <update id="saveInterestRate" parameterType="InterestRate">
+        replace into datacrawl.interest_rate (market_id, int_rate_type, yyyymmdd, int_rate) values
+        (
+            #{interestRate.marketId},
+            #{interestRate.interestRateType, typeHandler=EnumTypeHandler},
+            #{interestRate.yyyymmdd, typeHandler=JodaDateTimeTypeHandler},
+            #{interestRate.interestRate}
+        )
+    </update>
+
+    <select id="getMaxInterestRateCrawlDate" resultType="String">
+        select coalesce(max(yyyymmdd), '19000101') as max_crawl_date
+          from datacrawl.interest_rate
+         where market_id = #{marketId}
+           and int_rate_type = #{interestRateType, typeHandler=EnumTypeHandler}
+    </select>
+
 </mapper>

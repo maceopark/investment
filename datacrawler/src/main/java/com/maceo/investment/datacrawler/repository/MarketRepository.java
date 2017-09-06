@@ -5,7 +5,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.joda.time.DateTime;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Mapper
@@ -32,4 +34,8 @@ public interface MarketRepository {
     String getStandarTerm(@Param("term") String term);
 
     void saveFinancialSheetItem(@Param("financialSheetId") UUID financialSheetId, @Param("item") FinancialSheetItem item);
+
+    void saveInterestRate(@Param("interestRate") InterestRate interestRate);
+
+    String getMaxInterestRateCrawlDate(@Param("marketId") String marketId, @Param("interestRateType") InterestRateType interestRateType);
 }

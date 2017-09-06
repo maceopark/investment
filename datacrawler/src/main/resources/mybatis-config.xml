@@ -28,6 +28,8 @@
         <typeAlias type="java.util.UUID" alias="UUID"/>
         <typeAlias type="org.apache.ibatis.type.EnumTypeHandler" alias="EnumTypeHandler"/>
         <typeAlias type="com.maceo.investment.datacrawler.model.FinancialSheetType" alias="FinancialSheetType"/>
+        <typeAlias type="com.maceo.investment.datacrawler.model.InterestRateType" alias="InterestRateType"/>
+        <typeAlias type="com.maceo.investment.datacrawler.model.InterestRate" alias="InterestRate"/>
     </typeAliases>
 
     <mappers>
