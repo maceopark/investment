@@ -123,7 +123,9 @@ public class KRFinancialSheetNaverCrawler {
 
         Elements rows = fsheet.get().select("tr");
         if(rows.size() != rowIndexTermMap.size()) {
-            throw new HtmlParseException(String.format("Predefined format and actual HTML doesn't match. Fix parsing logic"));
+            LOGGER.error(String.format("Predefined format and actual HTML doesn't match. Fix parsing logic. stockCode=%s, stockName=%s", stock.getStockCode(), stock.getStockName()));
+            return;
+//            throw new HtmlParseException(String.format("Predefined format and actual HTML doesn't match. Fix parsing logic. stockCode=%s, stockName=%s", stock.getStockCode(), stock.getStockName()));
         }
 
         // Parse list of financial sheets
