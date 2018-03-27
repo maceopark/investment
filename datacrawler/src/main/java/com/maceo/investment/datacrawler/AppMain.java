@@ -1,9 +1,6 @@
 package com.maceo.investment.datacrawler;
 
-import com.maceo.investment.datacrawler.batch.KRFinancialSheetNaverCrawler;
-import com.maceo.investment.datacrawler.batch.KRStockCodeCrawler;
-import com.maceo.investment.datacrawler.batch.KRStockDailyDataCrawler;
-import com.maceo.investment.datacrawler.batch.KRTreasuryBond3YearCrawler;
+import com.maceo.investment.datacrawler.batch.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,6 +25,9 @@ public class AppMain implements CommandLineRunner {
     @Autowired
     private KRTreasuryBond3YearCrawler krTreasuryBond3YearCrawler;
 
+    @Autowired
+    private KRStockDailyPerInvester krStockDailyPerInvester;
+
     @Override
     public void run(String... args) throws Exception {
         if(args.length == 0) {
@@ -43,6 +43,8 @@ public class AppMain implements CommandLineRunner {
                 krTreasuryBond3YearCrawler.run();
             } else if(arg.equals("fsheet")) {
                 krFinancialSheetNaverCrawler.run();
+            } else if(arg.equals("perinvester")) {
+                krStockDailyPerInvester.run();
             } else {
                 throw new IllegalArgumentException("Illegal command line argument " + arg + ". It supports code, daily for now");
             }
