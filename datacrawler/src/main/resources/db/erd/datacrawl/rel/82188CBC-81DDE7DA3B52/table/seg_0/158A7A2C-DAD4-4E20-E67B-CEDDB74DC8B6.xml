@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="158A7A2C-DAD4-4E20-E67B-CEDDB74DC8B6" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="INTEREST_RATE">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>INTEREST_RATE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MARKET_ID" id="2E780EDF-D87D-7291-FB75-6B674B98AFD4">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>INTEREST_RATE</sourceObjSchema>
+<sourceObjName>MARKET_ID</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A61B97F8-7C2C-CD88-84AF-1117C5E40C17" referredColumn="A79AC4AC-AF61-46AA-F22A-49127464794B"/>
+</associations>
+</Column>
+<Column name="INT_RATE_TYPE" id="98BE106B-4564-6025-8B31-8FC9A11DEC5F">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>INTEREST_RATE</sourceObjSchema>
+<sourceObjName>INT_RATE_TYPE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="YYYYMMDD" id="A12073F5-13D0-1B5F-375A-58ED77AA05B1">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>INTEREST_RATE</sourceObjSchema>
+<sourceObjName>YYYYMMDD</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INT_RATE" id="4AE5E6ED-8F58-5E10-B3E9-B000CC8651BE">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>INTEREST_RATE</sourceObjSchema>
+<sourceObjName>INT_RATE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0EC23260-7AE0-E161-C9D6-6403691B1242" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="INTEREST_RATE_PK">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>SYS_C0011241</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2E780EDF-D87D-7291-FB75-6B674B98AFD4"/>
+<colUsage columnID="A12073F5-13D0-1B5F-375A-58ED77AA05B1"/>
+<colUsage columnID="98BE106B-4564-6025-8B31-8FC9A11DEC5F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D6C99067-E2E3-9A91-4E72-44AA153C329E" name="FK_MARKET1">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2E780EDF-D87D-7291-FB75-6B674B98AFD4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

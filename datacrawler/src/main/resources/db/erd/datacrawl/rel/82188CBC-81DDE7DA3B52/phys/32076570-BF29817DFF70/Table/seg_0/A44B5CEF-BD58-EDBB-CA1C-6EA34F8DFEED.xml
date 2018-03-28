@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="FINANCIAL_SHEET_ITEM" directorySegmentName="seg_0" id="A44B5CEF-BD58-EDBB-CA1C-6EA34F8DFEED">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>607CCDAB-95A5-889B-2DA3-8CC1FDA9830C</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TERM" id="A2BFF51F-1204-AAED-F539-DA0C2DA460E1">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="VALUE" id="BE1E9C04-BD3E-6906-7911-BB841329A5CA">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FINANCIAL_SHEET_ID" id="BE36DB4E-3393-425C-B6F7-4ACE7742B521">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATED_DATE" id="E7103877-486D-E941-DEF1-3ECB5F875E56">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<defaultValue>current_timestamp</defaultValue>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="FK_FINANCIAL_SHEET_TERM2_IDX" id="A1B3C048-F729-EAB4-57B9-0F4A557FAACD">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<segment>C2CCCACC-7771-78B1-29D4-D4F7DCD7EF91</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_FINANCIAL_SHEET_ID" id="2EBBDCC5-80FA-8A7C-F973-3457FBCFFB75">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_TERM" id="4EC2BC37-2A8C-56B5-42C3-3DFFC783B473">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="FINANCIAL_SHEET_ITEM_PK" id="7A5B4147-0886-6028-451C-3B364900E1ED">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<segment>C2CCCACC-7771-78B1-29D4-D4F7DCD7EF91</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<indexSegment>C2CCCACC-7771-78B1-29D4-D4F7DCD7EF91</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

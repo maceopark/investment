@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="1815DE5B-6132-D657-8962-68F4EE9640C9" containerWithKeyObject="A44B5CEF-BD58-EDBB-CA1C-6EA34F8DFEED" localFKIndex="2EBBDCC5-80FA-8A7C-F973-3457FBCFFB75" name="FK_FINANCIAL_SHEET_ID">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>FK_FINANCIAL_SHEET_ID</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<referredTableLongName>DATACRAWL.FINANCIAL_SHEET</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8299C6C1-C233-C70D-25EA-61F649B7DB9B</referredTableID>
+<keyObject>A093E1F2-65A6-AFD7-20E3-FC1F83AD7549</keyObject>
+<referredKeyID>A093E1F2-65A6-AFD7-20E3-FC1F83AD7549</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>FINANCIAL_SHEET_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

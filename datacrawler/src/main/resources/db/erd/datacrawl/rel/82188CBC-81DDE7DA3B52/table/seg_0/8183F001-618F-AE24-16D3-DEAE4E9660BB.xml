@@ -1,0 +1,186 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8183F001-618F-AE24-16D3-DEAE4E9660BB" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="STOCK_DAILY_DATA">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>STOCK_DAILY_DATA</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="STOCK_ID" id="282F9AE6-2568-1A48-A945-DCD0B85CB7FB">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK_DAILY_DATA</sourceObjSchema>
+<sourceObjName>STOCK_ID</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8D1A8E1D-E47A-9AFE-A042-B22DD7E29DB4" referredColumn="0C14677B-ADDB-3D13-C68D-EAAF4BE26C71"/>
+</associations>
+</Column>
+<Column name="YYYYMMDD" id="8816D989-F2FF-4059-2A26-11A37DD1C1EF">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK_DAILY_DATA</sourceObjSchema>
+<sourceObjName>YYYYMMDD</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FINAL_PRICE" id="FB34999B-B508-9A43-6431-8FEB6B2B6F26">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK_DAILY_DATA</sourceObjSchema>
+<sourceObjName>FINAL_PRICE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<commentInRDBMS>종가</commentInRDBMS>
+<ownerDesignName>datacrawl</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE_DIFF" id="368B96EB-554F-3AEC-6204-0207F321911B">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK_DAILY_DATA</sourceObjSchema>
+<sourceObjName>PRICE_DIFF</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<commentInRDBMS>전일대비등락</commentInRDBMS>
+<ownerDesignName>datacrawl</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="START_PRICE" id="5C5C7DC3-1DE0-79D2-2973-7000156AEBFF">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK_DAILY_DATA</sourceObjSchema>
+<sourceObjName>START_PRICE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<commentInRDBMS>시가</commentInRDBMS>
+<ownerDesignName>datacrawl</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HIGH_PRICE" id="D5E03515-7E29-59F7-2B83-F6612605A530">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK_DAILY_DATA</sourceObjSchema>
+<sourceObjName>HIGH_PRICE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<commentInRDBMS>고가</commentInRDBMS>
+<ownerDesignName>datacrawl</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOW_PRICE" id="05F13D98-AA2D-B10C-8659-2E88410FFA79">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK_DAILY_DATA</sourceObjSchema>
+<sourceObjName>LOW_PRICE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<commentInRDBMS>저가</commentInRDBMS>
+<ownerDesignName>datacrawl</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRADE_VOLUME" id="5DB8FDD2-2630-9891-58F6-5E67209DA5DA">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK_DAILY_DATA</sourceObjSchema>
+<sourceObjName>TRADE_VOLUME</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<commentInRDBMS>거래량</commentInRDBMS>
+<ownerDesignName>datacrawl</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A7B3CCA6-9059-976C-AA8E-873BC3F5DB8B" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="STOCK_DAILY_DATA_PK">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>SYS_C0011253</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="282F9AE6-2568-1A48-A945-DCD0B85CB7FB"/>
+<colUsage columnID="8816D989-F2FF-4059-2A26-11A37DD1C1EF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0714FB2C-A1AD-683A-4B8B-42CE8E92D094" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="FK_STOCK_DAILY_DATA_STOCK1_IDX">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>FK_STOCK_DAILY_DATA_STOCK1_IDX</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="282F9AE6-2568-1A48-A945-DCD0B85CB7FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7727378D-2A76-2177-162A-71EBF682C413" name="FK_STOCK_DAILY_DATA_STOCK1">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="282F9AE6-2568-1A48-A945-DCD0B85CB7FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

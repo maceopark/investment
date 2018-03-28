@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A8128526-19C3-3205-D81C-7B9DB2BC057D" containerWithKeyObject="8299C6C1-C233-C70D-25EA-61F649B7DB9B" localFKIndex="DCC504A8-5329-AFE7-DC1C-62986DDF39C9" name="FK_FINANCIAL_SHEET_STOCK1">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>FK_FINANCIAL_SHEET_STOCK1</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<referredTableLongName>DATACRAWL.STOCK</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D152A583-FF19-273A-69B9-941E390F5431</referredTableID>
+<keyObject>34109583-1F4D-FD21-1084-63A1D25F0301</keyObject>
+<referredKeyID>34109583-1F4D-FD21-1084-63A1D25F0301</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>STOCK_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

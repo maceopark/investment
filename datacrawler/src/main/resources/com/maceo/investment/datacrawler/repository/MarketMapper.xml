@@ -141,8 +141,18 @@
 
     <insert id="insertStockDailyData">
         /* MarketMapper.insertStockDailyData */
-        replace into datacrawl.stock_daily_data (stock_id, yyyymmdd, final_price, start_price, high_price, low_price, trade_volume) values
-        (#{stockId, typeHandler=UUIDTypeHandler}, #{data.yyyymmdd, typeHandler=JodaDateTimeTypeHandler}, #{data.finalPrice}, #{data.startPrice}, #{data.highPrice}, #{data.lowPrice}, #{data.tradeVolume} )
+        merge into datacrawl.stock_daily_data  s
+        using (select #{stockId, typeHandler=UUIDTypeHandler} as stock_id,
+                        #{data.yyyymmdd, typeHandler=JodaDateTimeTypeHandler} as yyyymmdd,
+                        #{data.finalPrice} as final_price,
+                        #{data.startPrice} as start_price,
+                        #{data.highPrice} as high_price,
+                        #{data.lowPrice} as low_price,
+                        #{data.tradeVolume} as trade_volume from dual) a
+        on (s.stock_id = a.stock_id and s.yyyymmdd = a.yyyymmdd)
+        when not matched then
+            insert (stock_id, yyyymmdd, final_price, start_price, high_price, low_price, trade_volume)
+            values (a.stock_id, a.yyyymmdd, a.final_price, a.start_price, a.high_price, a.low_price, a.trade_volume)
     </insert>
 
     <select id="getFinancialSheetsByStock" resultMap="financialSheetMap">
@@ -173,23 +183,32 @@
     </select>
 
     <update id="saveFinancialSheetItem" parameterType="FinancialSheetItem">
-        replace into datacrawl.financial_sheet_item (financial_sheet_id, term, value, created_date) values
-        (
-            #{financialSheetId, typeHandler=UUIDTypeHandler},
-            #{item.term},
-            #{item.value},
-            #{item.createdDate, typeHandler=JodaDateTimeTypeHandler}
-        )
+        merge into  datacrawl.financial_sheet_item a
+        using (select #{financialSheetId, typeHandler=UUIDTypeHandler} as financial_sheet_id,
+                        #{item.term} as term,
+                        #{item.value} as value,
+                        #{item.createdDate, typeHandler=JodaDateTimeTypeHandler} as created_date
+                from dual) b
+        on (a.financial_sheet_id = b.financial_sheet_id and a.term = b.term)
+        when not matched then
+            insert into (financial_sheet_id, term, value, created_date) values (a.financial_sheet_id, a.term, a.value, a.created_date)
+            values (b.financial_sheet_id, b.term, b.value, b.created_date)
+        when matched then
+            update set value = b.value
     </update>
 
     <update id="saveInterestRate" parameterType="InterestRate">
-        replace into datacrawl.interest_rate (market_id, int_rate_type, yyyymmdd, int_rate) values
-        (
-            #{interestRate.marketId},
-            #{interestRate.interestRateType, typeHandler=EnumTypeHandler},
-            #{interestRate.yyyymmdd, typeHandler=JodaDateTimeTypeHandler},
-            #{interestRate.interestRate}
-        )
+        merge into datacrawl.interest_rate a
+        using (select #{interestRate.marketId} as market_id ,
+                        #{interestRate.interestRateType, typeHandler=EnumTypeHandler} as int_rate_type,
+                        #{interestRate.yyyymmdd, typeHandler=JodaDateTimeTypeHandler} as yyyymmdd,
+                        #{interestRate.interestRate} as int_rate
+                from dual) b
+        on (a.market_id = b.market_id and a.int_rate_type = b.int_rate_type and a.yyyymmdd = b.yyyymmdd)
+        when not matched then
+          insert into (market_id, int_rate_type, yyyymmdd, int_rate) values (b.market_id, b.int_rate_type, b.yyyymmdd, b.int_rate)
+        when matched then
+          update set int_rate = b.int_rate
     </update>
 
     <select id="getMaxInterestRateCrawlDate" resultType="String">

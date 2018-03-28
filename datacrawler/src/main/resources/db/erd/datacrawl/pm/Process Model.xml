@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="CC799D4F-1910-56D0-2E55-652B16CBF1F6">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:41:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>
