@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A44B5CEF-BD58-EDBB-CA1C-6EA34F8DFEED" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="FINANCIAL_SHEET_ITEM">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>FINANCIAL_SHEET_ITEM</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="FINANCIAL_SHEET_ID" id="BE36DB4E-3393-425C-B6F7-4ACE7742B521">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>FINANCIAL_SHEET_ITEM</sourceObjSchema>
+<sourceObjName>FINANCIAL_SHEET_ID</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1815DE5B-6132-D657-8962-68F4EE9640C9" referredColumn="15E0FCA1-1B8C-2656-CA0B-8E21CAA036C9"/>
+</associations>
+</Column>
+<Column name="TERM" id="A2BFF51F-1204-AAED-F539-DA0C2DA460E1">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>FINANCIAL_SHEET_ITEM</sourceObjSchema>
+<sourceObjName>TERM</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6B955DAD-9DE0-F25A-62DF-7519815B5826" referredColumn="93F62624-C1EA-2778-4D83-65F175A5A6E1"/>
+</associations>
+</Column>
+<Column name="VALUE" id="BE1E9C04-BD3E-6906-7911-BB841329A5CA">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>FINANCIAL_SHEET_ITEM</sourceObjSchema>
+<sourceObjName>VALUE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_DATE" id="E7103877-486D-E941-DEF1-3ECB5F875E56">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>FINANCIAL_SHEET_ITEM</sourceObjSchema>
+<sourceObjName>CREATED_DATE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>current_timestamp</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7A5B4147-0886-6028-451C-3B364900E1ED" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="FINANCIAL_SHEET_ITEM_PK">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>SYS_C0011272</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE36DB4E-3393-425C-B6F7-4ACE7742B521"/>
+<colUsage columnID="A2BFF51F-1204-AAED-F539-DA0C2DA460E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A1B3C048-F729-EAB4-57B9-0F4A557FAACD" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="FK_FINANCIAL_SHEET_TERM2_IDX">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>FK_FINANCIAL_SHEET_TERM2_IDX</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A2BFF51F-1204-AAED-F539-DA0C2DA460E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2EBBDCC5-80FA-8A7C-F973-3457FBCFFB75" name="FK_FINANCIAL_SHEET_ID">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE36DB4E-3393-425C-B6F7-4ACE7742B521"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4EC2BC37-2A8C-56B5-42C3-3DFFC783B473" name="FK_TERM">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A2BFF51F-1204-AAED-F539-DA0C2DA460E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

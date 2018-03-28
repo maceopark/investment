@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="STOCK" directorySegmentName="seg_0" id="D152A583-FF19-273A-69B9-941E390F5431">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>4293362B-10B8-3C31-3675-A0915E160796</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="STOCK_ID" id="0C14677B-ADDB-3D13-C68D-EAAF4BE26C71">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MARKET_ID" id="7884B2E1-1FC5-C499-CBB9-EAB0306830B3">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STOCK_NAME" id="8A81C0EB-CBF4-4B06-BF79-8D2E7EAE4E9C">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATED_DATE" id="A55A5580-F711-BBD5-09A5-946ED21DEB1B">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<defaultValue>current_timestamp</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="STOCK_CODE" id="FC8C982C-75AD-BFE1-CF47-CC62B615FB40">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="UQ_MARKET_STOCK" id="08687233-66FA-88AB-748F-3AB958E9B65A">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<segment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="MARKET_ID" id="D0A5D528-8BED-1D0F-9188-85AB710FEBE6">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<segment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="STOCK_IBFK_1" id="5560E350-2543-3CFE-FE9B-24FC8DB550F3">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="STOCK_PK" id="34109583-1F4D-FD21-1084-63A1D25F0301">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<segment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<indexSegment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="UQ_MARKET_STOCK" id="0D31DCA5-101D-FDA0-CC67-DCC0D78EDE1B">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<segment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<existingIndex>08687233-66FA-88AB-748F-3AB958E9B65A</existingIndex>
+<indexSegment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev11g>

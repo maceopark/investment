@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TERM_VARIATION" directorySegmentName="seg_0" id="80F041BD-1223-7DA3-82FC-9D85A9FCBF16">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>4293362B-10B8-3C31-3675-A0915E160796</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TERM" id="4B9B520F-39AC-4128-9D34-E02308CB04B5">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="VARIATION" id="7E5D8608-3B6B-D9A6-C296-1E39494F716A">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_FINANCIAL_SHEET_TERM1" id="EF6BDC07-FB7F-F8AA-53D2-741004D19140">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TERM_VARIATION_PK" id="3D95994A-97A0-85CF-AB7E-9BFE2F25114B">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<segment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<indexSegment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

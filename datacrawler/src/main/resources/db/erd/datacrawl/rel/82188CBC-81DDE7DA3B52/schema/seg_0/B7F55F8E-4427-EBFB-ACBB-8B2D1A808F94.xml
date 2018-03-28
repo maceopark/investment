@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="DATACRAWL" directorySegmentName="seg_0" id="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</SchemaObject>

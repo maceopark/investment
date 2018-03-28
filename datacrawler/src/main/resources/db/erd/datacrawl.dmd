@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="datacrawl" id="82529759-A7B5-7A49-0A8A-E27A60267D4B" version="3.5">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:41:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>82529759-A7B5-7A49-0A8A-E27A60267D4B</designId>
+</OSDM_Design>

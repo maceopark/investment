@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="MARKET" directorySegmentName="seg_0" id="9461A5A4-89A5-8119-D5DD-4F88FFC0C565">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>4293362B-10B8-3C31-3675-A0915E160796</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MARKET_DESC" id="1A78C099-8788-BF10-07A5-D8229028BFDD">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CODE_CRAWL_BASE_URL" id="8B878BD4-7C45-D831-AB89-8EE6746458BF">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MARKET_ID" id="A79AC4AC-AF61-46AA-F22A-49127464794B">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TRADE_CURRENCY" id="CCB656F6-BD7C-C4E9-D32F-36EB99CAB1D6">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MARKET_PK" id="FC053033-82D0-F0A0-50C3-AE8E2833C14B">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<segment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<indexSegment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

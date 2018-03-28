@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="INTEREST_RATE" directorySegmentName="seg_0" id="158A7A2C-DAD4-4E20-E67B-CEDDB74DC8B6">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>4293362B-10B8-3C31-3675-A0915E160796</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MARKET_ID" id="2E780EDF-D87D-7291-FB75-6B674B98AFD4">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="INT_RATE" id="4AE5E6ED-8F58-5E10-B3E9-B000CC8651BE">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="INT_RATE_TYPE" id="98BE106B-4564-6025-8B31-8FC9A11DEC5F">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="YYYYMMDD" id="A12073F5-13D0-1B5F-375A-58ED77AA05B1">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_MARKET1" id="D6C99067-E2E3-9A91-4E72-44AA153C329E">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="INTEREST_RATE_PK" id="0EC23260-7AE0-E161-C9D6-6403691B1242">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<schemaObject>B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94</schemaObject>
+<segment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</segment>
+<tableSpace>63CA88B8-FD31-B6B9-4A63-7EEFF68E770E</tableSpace>
+<indexSegment>40ECB640-A8E3-88F9-DA06-E81701E4CA49</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

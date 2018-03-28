@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="80F041BD-1223-7DA3-82FC-9D85A9FCBF16" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="TERM_VARIATION">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>TERM_VARIATION</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TERM" id="4B9B520F-39AC-4128-9D34-E02308CB04B5">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>TERM_VARIATION</sourceObjSchema>
+<sourceObjName>TERM</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="38AB82E6-E3A7-18C3-D2C8-3EEE7268D56E" referredColumn="93F62624-C1EA-2778-4D83-65F175A5A6E1"/>
+</associations>
+</Column>
+<Column name="VARIATION" id="7E5D8608-3B6B-D9A6-C296-1E39494F716A">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>TERM_VARIATION</sourceObjSchema>
+<sourceObjName>VARIATION</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 BYTE</dataTypeSize>
+<ownDataTypeParameters>45 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3D95994A-97A0-85CF-AB7E-9BFE2F25114B" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="TERM_VARIATION_PK">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>SYS_C0011267</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4B9B520F-39AC-4128-9D34-E02308CB04B5"/>
+<colUsage columnID="7E5D8608-3B6B-D9A6-C296-1E39494F716A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EF6BDC07-FB7F-F8AA-53D2-741004D19140" name="FK_FINANCIAL_SHEET_TERM1">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4B9B520F-39AC-4128-9D34-E02308CB04B5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

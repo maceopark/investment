@@ -1,0 +1,154 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D152A583-FF19-273A-69B9-941E390F5431" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="STOCK">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>STOCK</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="STOCK_ID" id="0C14677B-ADDB-3D13-C68D-EAAF4BE26C71">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK</sourceObjSchema>
+<sourceObjName>STOCK_ID</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MARKET_ID" id="7884B2E1-1FC5-C499-CBB9-EAB0306830B3">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK</sourceObjSchema>
+<sourceObjName>MARKET_ID</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="87D2BE28-B829-B8EC-7198-555693D31A49" referredColumn="A79AC4AC-AF61-46AA-F22A-49127464794B"/>
+</associations>
+</Column>
+<Column name="STOCK_CODE" id="FC8C982C-75AD-BFE1-CF47-CC62B615FB40">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK</sourceObjSchema>
+<sourceObjName>STOCK_CODE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 BYTE</dataTypeSize>
+<ownDataTypeParameters>45 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STOCK_NAME" id="8A81C0EB-CBF4-4B06-BF79-8D2E7EAE4E9C">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK</sourceObjSchema>
+<sourceObjName>STOCK_NAME</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 BYTE</dataTypeSize>
+<ownDataTypeParameters>45 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_DATE" id="A55A5580-F711-BBD5-09A5-946ED21DEB1B">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>STOCK</sourceObjSchema>
+<sourceObjName>CREATED_DATE</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:34 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>current_timestamp</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="34109583-1F4D-FD21-1084-63A1D25F0301" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="STOCK_PK">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>SYS_C0011248</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0C14677B-ADDB-3D13-C68D-EAAF4BE26C71"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0D31DCA5-101D-FDA0-CC67-DCC0D78EDE1B" name="UQ_MARKET_STOCK">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>UQ_MARKET_STOCK</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FC8C982C-75AD-BFE1-CF47-CC62B615FB40"/>
+<colUsage columnID="7884B2E1-1FC5-C499-CBB9-EAB0306830B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D0A5D528-8BED-1D0F-9188-85AB710FEBE6" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="MARKET_ID">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>MARKET_ID</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7884B2E1-1FC5-C499-CBB9-EAB0306830B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="08687233-66FA-88AB-748F-3AB958E9B65A" schemaObject="B7F55F8E-4427-EBFB-ACBB-8B2D1A808F94" name="UQ_MARKET_STOCK">
+<sourceConnName>datacrawl</sourceConnName>
+<sourceObjSchema>DATACRAWL</sourceObjSchema>
+<sourceObjName>UQ_MARKET_STOCK</sourceObjName>
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FC8C982C-75AD-BFE1-CF47-CC62B615FB40"/>
+<colUsage columnID="7884B2E1-1FC5-C499-CBB9-EAB0306830B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5560E350-2543-3CFE-FE9B-24FC8DB550F3" name="STOCK_IBFK_1">
+<createdBy>Nochul</createdBy>
+<createdTime>2018-03-28 01:42:35 UTC</createdTime>
+<ownerDesignName>datacrawl</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7884B2E1-1FC5-C499-CBB9-EAB0306830B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
